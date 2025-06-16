@@ -109,6 +109,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'English'**
   String get english;
+
+  /// No description provided for @onboardingOneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Comfortable Space'**
+  String get onboardingOneTitle;
+
+  /// No description provided for @onboardingOneDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy a space that offers comfort and relaxation, where smart design meets serene ambiance.'**
+  String get onboardingOneDescription;
+
+  /// No description provided for @onboardingTwoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Modern Design'**
+  String get onboardingTwoTitle;
+
+  /// No description provided for @onboardingTwoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A modern design that blends elegance and functionality, creating a perfect environment for your lifestyle.'**
+  String get onboardingTwoDescription;
+
+  /// No description provided for @onboardingThreeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Styled Living'**
+  String get onboardingThreeTitle;
+
+  /// No description provided for @onboardingThreeDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Live in style with details designed for a luxurious and distinctive experience.'**
+  String get onboardingThreeDescription;
+
+  /// No description provided for @onboardingFourTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relaxing Furniture'**
+  String get onboardingFourTitle;
+
+  /// No description provided for @onboardingFourDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Every corner is designed to provide unparalleled comfort, making you feel at home in your own world.'**
+  String get onboardingFourDescription;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @forgetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password'**
+  String get forgetPassword;
+
+  /// No description provided for @forgetPasswordButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password?'**
+  String get forgetPasswordButton;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
+  /// No description provided for @enterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email address'**
+  String get enterEmail;
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get username;
+
+  /// No description provided for @userNameOrEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'UserName or Email'**
+  String get userNameOrEmail;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailAddress;
+
+  /// No description provided for @emailValue.
+  ///
+  /// In en, this message translates to:
+  /// **'example@example.com'**
+  String get emailValue;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'password'**
+  String get password;
+
+  /// No description provided for @setPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Password'**
+  String get setPassword;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the Password'**
+  String get changePassword;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @passwordValue.
+  ///
+  /// In en, this message translates to:
+  /// **'********'**
+  String get passwordValue;
+
+  /// No description provided for @mobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobileNumber;
+
+  /// No description provided for @mobileNumberValue.
+  ///
+  /// In en, this message translates to:
+  /// **'+123 456 789'**
+  String get mobileNumberValue;
+
+  /// No description provided for @dateOFBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get dateOFBirth;
+
+  /// No description provided for @dateOFBirthValue.
+  ///
+  /// In en, this message translates to:
+  /// **'DD / MM /YYY'**
+  String get dateOFBirthValue;
+
+  /// No description provided for @loginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get loginTitle;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get createAccount;
+
+  /// No description provided for @loginButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get loginButton;
+
+  /// No description provided for @signUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get signUp;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @welcomeSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your details to proceed.'**
+  String get welcomeSubTitle;
+
+  /// No description provided for @orMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'or sign up with'**
+  String get orMethod;
+
+  /// No description provided for @haveNoAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t have an account?'**
+  String get haveNoAccount;
+
+  /// No description provided for @haveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get haveAccount;
+
+  /// No description provided for @licences.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing, you agree to '**
+  String get licences;
+
+  /// No description provided for @termsOfUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use '**
+  String get termsOfUse;
+
+  /// No description provided for @and.
+  ///
+  /// In en, this message translates to:
+  /// **'and '**
+  String get and;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy.'**
+  String get privacyPolicy;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back.'**
+  String get welcomeBack;
 }
 
 class _AppLocalizationsDelegate

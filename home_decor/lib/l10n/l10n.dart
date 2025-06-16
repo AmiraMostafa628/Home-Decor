@@ -7,8 +7,9 @@ class L10n {
   static Locale currentLocale = supportedLocales.first;
 
   static final List<Locale> supportedLocales = [
-    const Locale('en', ''),
     const Locale('ar', ''),
+    const Locale('en', ''),
+
   ];
 
   static String getFlag(String code) {

@@ -41,9 +41,10 @@ class CustomTextButton extends StatelessWidget {
         ),
         child: Text(
           upperCase ? text.toUpperCase() : text,
+          textScaler: TextScaler.linear(1.0),
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
             fontSize: fontSize ?? 20,
-            fontWeight: fontWeight?? FontWeight.bold,
+            fontWeight:  FontWeight.w600,
             color: fontColor??ColorManager.darkPrimaryColor,
           ),
         ),

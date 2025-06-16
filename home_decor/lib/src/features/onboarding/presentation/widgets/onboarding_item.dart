@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:home_decor/l10n/arb/app_localizations.dart';
 import 'package:home_decor/src/core/components/custom_text_button.dart';
+import 'package:home_decor/src/core/components/simple_text_button.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
-import 'package:home_decor/src/features/onboarding/domain/entities/onboarding_model.dart';
-import 'package:home_decor/src/features/onboarding/presentation/widgets/scroll_indicator.dart';
+import 'package:home_decor/src/core/services/local_storage/cache_start_widget.dart';
+import 'package:home_decor/src/core/services/router/app_router.dart';
+import 'package:home_decor/src/features/onboarding/domain/entities/onboarding.dart';
+import 'package:home_decor/src/core/components/scroll_indicator.dart';
 
 class BuildOnBoardingItem extends StatelessWidget {
   const BuildOnBoardingItem({
     super.key,
-    required this.model,
+    required this.item,
     required this.boardController,
     required this.itemLength,
     required this.isLast,
     required this.currentIndex,
   });
 
-  final OnboardingModel model;
+  final Onboarding item;
   final PageController boardController;
   final int itemLength;
   final bool isLast;
@@ -34,24 +39,28 @@ class BuildOnBoardingItem extends StatelessWidget {
                   bottomRight: Radius.circular(40),
                 ),
                 child: Image.asset(
-                  model.image,
+                  item.image,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
-              Positioned(
+              PositionedDirectional(
                 top: 5,
-                right: 10,
-                child: TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    foregroundColor: ColorManager.blackColor,
-                  ),
+                start: 10,
+                child: SimpleTextButton(
+                  onPressed: () {
+                    CacheStartWidget.saveOnboarding();
+                    GoRouter.of(context).push(AppRouter.kLoginView);
+                  },
+                  foregroundColor: ColorManager.blackColor,
                   child: Row(
                     spacing: 1,
                     children: [
-                      Text('Skip'),
-                      Icon(
+                      Text(
+                        AppLocalizations.of(context).skip,
+                        textScaler: TextScaler.linear(1.0),
+                      ),
+                      const Icon(
                         Icons.arrow_forward,
                       ),
                     ],
@@ -60,22 +69,32 @@ class BuildOnBoardingItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Text(
-            model.title,
-            style: Theme.of(context).textTheme.headlineMedium,
+            item.title,
+            textScaler: TextScaler.linear(1.0),
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+              fontWeight: FontWeight.w600,
+              color: ColorManager.primaryColor,
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
-            model.details,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              item.details,
+              textScaler: TextScaler.linear(1.0),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                fontSize: 15,
+              ),
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
 
@@ -88,14 +107,17 @@ class BuildOnBoardingItem extends StatelessWidget {
                   currentIndex: currentIndex,
                   itemLength: itemLength,
                 ),
-                CustomTextButton(
-                  text: 'Next',
+                 CustomTextButton(
+                  text: AppLocalizations.of(context).next,
                   onPressed: () {
                     if (!isLast) {
                       boardController.nextPage(
                         duration: const Duration(milliseconds: 700),
                         curve: Curves.decelerate,
                       );
+                    } else {
+                      CacheStartWidget.saveOnboarding();
+                      GoRouter.of(context).push(AppRouter.kLoginView);
                     }
                   },
                   width: 170,
@@ -108,4 +130,3 @@ class BuildOnBoardingItem extends StatelessWidget {
     );
   }
 }
-
