@@ -23,8 +23,10 @@
             <option value="$PROJECT_DIR$/home_decor/android" />
             <option value="$PROJECT_DIR$/home_decor/android/app" />
             <option value="$PROJECT_DIR$/../../flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_native_splash-2.4.6/android" />
+            <option value="$PROJECT_DIR$/../../flutter_pub_cache/hosted/pub.flutter-io.cn/flutter_secure_storage-9.2.4/android" />
             <option value="$PROJECT_DIR$/../../flutter_pub_cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.17/android" />
             <option value="$PROJECT_DIR$/../../flutter_pub_cache/hosted/pub.flutter-io.cn/shared_preferences_android-2.4.10/android" />
+            <option value="$PROJECT_DIR$/../../flutter_pub_cache/hosted/pub.flutter-io.cn/sqflite_android-2.4.1/android" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
