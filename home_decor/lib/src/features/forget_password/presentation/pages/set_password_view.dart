@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:home_decor/l10n/arb/app_localizations.dart';
+import 'package:home_decor/src/core/components/adaptive_input_field.dart';
 import 'package:home_decor/src/core/components/custom_text_button.dart';
-import 'package:home_decor/src/core/components/custom_text_form_field.dart';
+import 'package:home_decor/src/core/extensions/lang.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
+import 'package:home_decor/src/core/services/validation/confirm_password_validation_service.dart';
+import 'package:home_decor/src/core/services/validation/password_validation_service.dart';
 
 class SetPasswordView extends StatelessWidget {
   SetPasswordView({super.key});
@@ -30,7 +32,7 @@ class SetPasswordView extends StatelessWidget {
                   Expanded(
                     child: Center(
                       child: Text(
-                        AppLocalizations.of(context).setPassword,
+                        context.l10n.setPassword,
                         textScaler: TextScaler.linear(1.0),
                         style: Theme.of(context).textTheme.headlineSmall!
                             .copyWith(
@@ -46,7 +48,7 @@ class SetPasswordView extends StatelessWidget {
                 height: 20.0,
               ),
               Text(
-                AppLocalizations.of(context).changePassword,
+                context.l10n.changePassword,
                 textScaler: TextScaler.linear(1.0),
                 style:
                     Theme.of(
@@ -59,54 +61,43 @@ class SetPasswordView extends StatelessWidget {
               SizedBox(
                 height: 20.0,
               ),
-              Text(
-                AppLocalizations.of(context).password,
-                textScaler: TextScaler.linear(1.0),
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  fontSize: 18,
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              CustomTextFormField(
-                text: AppLocalizations.of(context).passwordValue,
-                suffixIcon: Icon(
+              AdaptiveInputField(
+                context: context,
+                title: context.l10n.password,
+                hintText: context.l10n.passwordValue,
+                controller: passwordController,
+                heightAfterIt: 30.0,
+                suffix: Icon(
                   Icons.visibility_off_outlined,
                   color: ColorManager.hintTextColor,
                 ),
-                textEditingController: passwordController,
+                validate: (value) {
+                  return isPasswordValid(password: value);
+                },
               ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Text(
-                AppLocalizations.of(context).confirmPassword,
-                textScaler: TextScaler.linear(1.0),
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                 fontSize: 18,
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              CustomTextFormField(
-                text: AppLocalizations.of(context).passwordValue,
-                suffixIcon: Icon(
+              AdaptiveInputField(
+                context: context,
+                title: context.l10n.confirmPassword,
+                hintText: context.l10n.passwordValue,
+                controller: confirmPasswordController,
+                heightAfterIt: 40.0,
+                suffix: Icon(
                   Icons.visibility_off_outlined,
                   color: ColorManager.hintTextColor,
                 ),
-                textEditingController: confirmPasswordController,
-              ),
-              SizedBox(
-                height: 40,
+                validate: (value) {
+                  return matchPassword(
+                    value: value,
+                    password: passwordController.text,
+                  );
+                },
               ),
               Center(
                 child: SizedBox(
                   width: 220,
                   child: CustomTextButton(
                     upperCase: false,
-                    text: AppLocalizations.of(context).resetPassword,
+                    text: context.l10n.resetPassword,
                   ),
                 ),
               ),

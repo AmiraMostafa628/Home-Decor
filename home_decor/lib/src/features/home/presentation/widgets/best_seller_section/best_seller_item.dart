@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:home_decor/src/core/components/custom_image.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
 import 'package:home_decor/src/features/home/domain/entities/data.dart';
 
@@ -29,11 +29,11 @@ class BestSellerItem extends StatelessWidget {
               Text(
                 bestSeller.name,
                 style: textTheme.bodyLarge!.copyWith(
-                    fontWeight: FontWeight.w500
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(
-                width: 220.0,
+                width: 210.0,
                 child: Text(
                   bestSeller.description,
                   maxLines: 2,
@@ -46,15 +46,19 @@ class BestSellerItem extends StatelessWidget {
                 spacing: 70.0,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 7.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                      vertical: 7.0,
+                    ),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.0),
-                        color: Theme.of(context).scaffoldBackgroundColor
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Theme.of(context).scaffoldBackgroundColor,
                     ),
                     child: Row(
                       spacing: 4.0,
                       children: [
-                        Icon(Icons.star,
+                        Icon(
+                          Icons.star,
                           color: ColorManager.primaryColor,
                         ),
                         Text(
@@ -65,38 +69,36 @@ class BestSellerItem extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 7.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10.0,
+                      vertical: 7.0,
+                    ),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.0),
-                        color: Theme.of(context).scaffoldBackgroundColor
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Theme.of(context).scaffoldBackgroundColor,
                     ),
                     child: Text(
                       'Shop Now',
                       style: textTheme.bodyMedium,
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
         Positioned(
           top: -50,
-          right: 10,
-          child: Container(
-            width: 150,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: CachedNetworkImageProvider(
-                  bestSeller.image,
-                ),
-                fit: BoxFit.cover,
-              ),
+          right: 0,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: CustomImage(
+              imageType: ImagesType.network,
+              width: 150,
+              height: 120,
+              imagePath: bestSeller.image,
+              boxFit: BoxFit.cover,
             ),
-
           ),
         ),
       ],

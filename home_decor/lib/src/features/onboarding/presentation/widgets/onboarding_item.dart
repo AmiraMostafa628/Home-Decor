@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_decor/l10n/arb/app_localizations.dart';
 import 'package:home_decor/src/core/components/custom_text_button.dart';
 import 'package:home_decor/src/core/components/simple_text_button.dart';
+import 'package:home_decor/src/core/extensions/lang.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
-import 'package:home_decor/src/core/services/local_storage/cache_start_widget.dart';
+import 'package:home_decor/src/core/services/local_storage/cache_services.dart';
+import 'package:home_decor/src/core/services/local_storage/cached_keys.dart';
 import 'package:home_decor/src/core/services/router/app_router.dart';
 import 'package:home_decor/src/features/onboarding/domain/entities/onboarding.dart';
 import 'package:home_decor/src/core/components/scroll_indicator.dart';
@@ -49,7 +50,7 @@ class BuildOnBoardingItem extends StatelessWidget {
                 start: 10,
                 child: SimpleTextButton(
                   onPressed: () {
-                    CacheStartWidget.saveOnboarding();
+                    CacheServices.saveCachedData(key: CachedKeys.onBoardingKey, value: true);
                     GoRouter.of(context).push(AppRouter.kLoginView);
                   },
                   foregroundColor: ColorManager.blackColor,
@@ -57,7 +58,7 @@ class BuildOnBoardingItem extends StatelessWidget {
                     spacing: 1,
                     children: [
                       Text(
-                        AppLocalizations.of(context).skip,
+                        context.l10n.skip,
                         textScaler: TextScaler.linear(1.0),
                       ),
                       const Icon(
@@ -108,7 +109,7 @@ class BuildOnBoardingItem extends StatelessWidget {
                   itemLength: itemLength,
                 ),
                  CustomTextButton(
-                  text: AppLocalizations.of(context).next,
+                  text: context.l10n.next,
                   onPressed: () {
                     if (!isLast) {
                       boardController.nextPage(
@@ -116,7 +117,7 @@ class BuildOnBoardingItem extends StatelessWidget {
                         curve: Curves.decelerate,
                       );
                     } else {
-                      CacheStartWidget.saveOnboarding();
+                      CacheServices.saveCachedData(key: CachedKeys.onBoardingKey, value: true);
                       GoRouter.of(context).push(AppRouter.kLoginView);
                     }
                   },

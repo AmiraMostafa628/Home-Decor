@@ -5,10 +5,9 @@ import '../l10n/custom_delegate.dart';
 
 class L10n {
   static Locale currentLocale = supportedLocales.first;
-
   static final List<Locale> supportedLocales = [
-    const Locale('ar', ''),
     const Locale('en', ''),
+    const Locale('ar', ''),
 
   ];
 

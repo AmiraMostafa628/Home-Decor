@@ -7,8 +7,8 @@ import 'package:home_decor/src/features/home/presentation/manager/bloc/home_even
 import 'package:home_decor/src/features/home/presentation/manager/bloc/home_state.dart';
 import 'package:home_decor/src/features/home/presentation/pages/home_view_body.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView({super.key});
+class MainView extends StatelessWidget {
+  MainView({super.key});
 
   final List<Widget> _destinationsItems = [
     NavigationDestination(
@@ -63,6 +63,8 @@ class HomeView extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
+        buildWhen: (previous, current) =>
+        previous.selectedBottomNavbarIndex != current.selectedBottomNavbarIndex,
         builder: (context, state) {
           return NavigationBar(
             selectedIndex: state.selectedBottomNavbarIndex,

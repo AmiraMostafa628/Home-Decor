@@ -45,7 +45,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     SliderEvent event,
     Emitter<HomeState> emit,
   ) async {
-    final result = await sliderUseCase.call(NoParam());
+    emit(
+      state.copyWith(
+        sliderStatus: RequestState.loading,
+      ),
+    );
+    final result = await sliderUseCase.call(param: NoParam());
 
     result.fold(
       (failure) {
@@ -71,7 +76,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     CategoriesEvent event,
     Emitter<HomeState> emit,
   ) async {
-    final result = await categoriesUseCase.call(NoParam());
+    emit(
+      state.copyWith(
+        categoriesStatus: RequestState.loading,
+      ),
+    );
+    final result = await categoriesUseCase.call(param: NoParam());
 
     result.fold(
       (failure) {
@@ -97,7 +107,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     BestSellerEvent event,
     Emitter<HomeState> emit,
   ) async {
-    final result = await bestSellerUseCase.call(NoParam());
+    emit(
+      state.copyWith(
+        bestSellerStatus: RequestState.loading,
+      ),
+    );
+    final result = await bestSellerUseCase.call(param: NoParam());
     result.fold(
       (failure) {
         emit(
@@ -108,7 +123,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       },
       (data) {
-
         emit(
           state.copyWith(
             bestSellerStatus: RequestState.loaded,
@@ -123,7 +137,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     NewCollectionEvent event,
     Emitter<HomeState> emit,
   ) async {
-    final result = await newCollectionUseCase.call(NoParam());
+    emit(
+      state.copyWith(
+        newCollectionsStatus: RequestState.loading,
+      ),
+    );
+    final result = await newCollectionUseCase.call(param: NoParam());
     result.fold(
       (failure) {
         emit(

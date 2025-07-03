@@ -194,11 +194,17 @@ abstract class AppLocalizations {
   /// **'Enter your email address'**
   String get enterEmail;
 
-  /// No description provided for @username.
+  /// No description provided for @userName.
   ///
   /// In en, this message translates to:
-  /// **'Username'**
-  String get username;
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
 
   /// No description provided for @userNameOrEmail.
   ///
@@ -221,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
-  /// **'password'**
+  /// **'Password'**
   String get password;
 
   /// No description provided for @setPassword.
@@ -269,7 +275,7 @@ abstract class AppLocalizations {
   /// No description provided for @dateOFBirthValue.
   ///
   /// In en, this message translates to:
-  /// **'DD / MM /YYY'**
+  /// **'YYYY / MM /DD'**
   String get dateOFBirthValue;
 
   /// No description provided for @loginTitle.

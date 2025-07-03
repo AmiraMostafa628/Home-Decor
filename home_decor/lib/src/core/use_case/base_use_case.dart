@@ -1,9 +1,8 @@
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:home_decor/src/core/connection/failure.dart';
+import 'package:home_decor/src/core/type_def/type_def_either.dart';
 
 abstract class BaseUseCase<T, Param> {
-  Future<Either<Failure, T>> call(Param param);
+  FutureFailure<T> call({required Param param});
 }
 
 class NoParam extends Equatable{

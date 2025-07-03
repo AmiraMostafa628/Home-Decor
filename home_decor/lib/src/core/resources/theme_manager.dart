@@ -18,6 +18,15 @@ class AppTheme {
         statusBarIconBrightness: Brightness.dark,
       ),
     ),
+    datePickerTheme: DatePickerThemeData(
+      backgroundColor: ColorManager.whiteColor,
+      headerBackgroundColor: ColorManager.primaryColor,
+      dividerColor: Colors.transparent
+
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: Colors.white
+    ),
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: ColorManager.primaryColor,
@@ -48,6 +57,10 @@ class AppTheme {
         statusBarIconBrightness: Brightness.light,
       ),
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: Colors.black54
+    ),
+
 
     colorScheme: ColorScheme(
       brightness: Brightness.dark,

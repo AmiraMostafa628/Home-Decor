@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:home_decor/src/core/components/custom_image.dart';
 import 'package:home_decor/src/core/components/scroll_indicator.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
 import 'package:home_decor/src/features/home/domain/entities/slider_data.dart';
@@ -26,18 +26,19 @@ class ScrollItemBuilder extends StatelessWidget {
           height: 160,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               width: 1,
               color: ColorManager.primaryColor,
             ),
-            image: DecorationImage(
-              image: CachedNetworkImageProvider(
-                item.image,
-              ),
-              fit: BoxFit.fill,
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: CustomImage(
+              imageType: ImagesType.network,
+              imagePath: item.image,
             ),
+
           ),
         ),
 
@@ -45,7 +46,7 @@ class ScrollItemBuilder extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           currentIndex: currentIndex,
           itemLength: itemLength,
-          unActiveWidth:50.0,
+          unActiveWidth: 50.0,
           activeWidth: 50,
           height: 8,
         ),

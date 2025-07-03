@@ -14,7 +14,11 @@ abstract class Failure extends Equatable {
 
 
 class ServerFailure extends Failure {
+
   const ServerFailure({
     required super.message,
   });
+
+  @override
+  String toString() => message;
 }

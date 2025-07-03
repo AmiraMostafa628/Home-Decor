@@ -1,15 +1,14 @@
-import 'package:dartz/dartz.dart';
-import 'package:home_decor/src/core/connection/failure.dart';
+import 'package:home_decor/src/core/type_def/type_def_either.dart';
 import 'package:home_decor/src/core/use_case/base_use_case.dart';
 import 'package:home_decor/src/features/home/domain/entities/new_collections_and_best_seller.dart';
-import 'package:home_decor/src/features/home/domain/repositories/base_repositories.dart';
+import 'package:home_decor/src/features/home/domain/repositories/base_new_collections_repository.dart';
 
 class NewCollectionUseCase extends BaseUseCase<NewCollectionsAndBestSellerEntity,NoParam> {
-  final BaseRepository repository;
+  final BaseNewCollectionsRepository repository;
   NewCollectionUseCase({required this.repository});
 
   @override
-  Future<Either<Failure, NewCollectionsAndBestSellerEntity>> call(NoParam param) async{
+  FutureFailure<NewCollectionsAndBestSellerEntity> call({required NoParam param}) async{
     return await repository.getNewCollectionData();
   }
 }

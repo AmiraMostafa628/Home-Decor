@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_decor/l10n/arb/app_localizations.dart';
 import 'package:home_decor/src/core/components/simple_text_button.dart';
+import 'package:home_decor/src/core/extensions/lang.dart';
 import 'package:home_decor/src/core/resources/assets_manager.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
 import 'package:home_decor/src/core/services/router/app_router.dart';
@@ -19,7 +19,7 @@ class LoginMethod extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            AppLocalizations.of(context).orMethod,
+            context.l10n.orMethod,
             textScaler: TextScaler.linear(1.0),
             textAlign: TextAlign.center,
           ),
@@ -39,7 +39,7 @@ class LoginMethod extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                AppLocalizations.of(context).haveNoAccount,
+                context.l10n.haveNoAccount,
                 textScaler: TextScaler.linear(1.0),
               ),
               SimpleTextButton(
@@ -50,7 +50,7 @@ class LoginMethod extends StatelessWidget {
                 },
                 foregroundColor: ColorManager.darkPrimaryColor,
                 child: Text(
-                  AppLocalizations.of(context).signUp,
+                  context.l10n.signUp,
                   textScaler: TextScaler.linear(1.0),
                 ),
               ),

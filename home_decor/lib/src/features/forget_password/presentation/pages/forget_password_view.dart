@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_decor/l10n/arb/app_localizations.dart';
+import 'package:home_decor/src/core/components/adaptive_input_field.dart';
 import 'package:home_decor/src/core/components/custom_text_button.dart';
-import 'package:home_decor/src/core/components/custom_text_form_field.dart';
+import 'package:home_decor/src/core/extensions/lang.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
 import 'package:home_decor/src/core/services/router/app_router.dart';
+import 'package:home_decor/src/core/services/validation/user_name_validation_service.dart';
 
 class ForgetPasswordView extends StatelessWidget {
    ForgetPasswordView({super.key});
@@ -33,7 +34,7 @@ class ForgetPasswordView extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          AppLocalizations.of(context).forgetPassword,
+                         context.l10n.forgetPassword,
                           textScaler: TextScaler.linear(1.0),
                           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                             fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ class ForgetPasswordView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
-                  AppLocalizations.of(context).resetPassword,
+                 context.l10n.resetPassword,
                   textScaler: TextScaler.linear(1.0),
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.w600,
@@ -79,23 +80,17 @@ class ForgetPasswordView extends StatelessWidget {
                         const SizedBox(
                           height: 40.0,
                         ),
-                        Text(
-                          AppLocalizations.of(context).enterEmail,
-                          textScaler: TextScaler.linear(1.0),
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            fontSize: 18,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        CustomTextFormField(
-                          text: AppLocalizations.of(context).emailAddress,
-                          filledColor: Colors.white,
-                          textEditingController: emailController,
-                        ),
-                        const SizedBox(
-                          height: 30.0,
+                        AdaptiveInputField(
+                          context: context,
+                          fillColor: ColorManager.whiteColor,
+                          title: context.l10n.enterEmail,
+                          hintText: context.l10n.emailAddress,
+                          controller: emailController,
+                          heightAfterIt: 30.0,
+
+                          validate: (value) {
+                            return isUserNameValid(userName: value);
+                          },
                         ),
                         Center(
                           child: SizedBox(
@@ -105,7 +100,7 @@ class ForgetPasswordView extends StatelessWidget {
                               onPressed: (){
                                 GoRouter.of(context).push(AppRouter.kSetPasswordView);
                               },
-                              text: AppLocalizations.of(context).next,
+                              text:context.l10n.next,
                             ),
                           ),
                         ),

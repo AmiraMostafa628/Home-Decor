@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:home_decor/l10n/arb/app_localizations.dart';
+import 'package:home_decor/src/core/extensions/lang.dart';
 import 'package:home_decor/src/core/resources/assets_manager.dart';
-import 'package:home_decor/src/core/services/local_storage/cache_start_widget.dart';
+import 'package:home_decor/src/core/services/local_storage/cache_services.dart';
+import 'package:home_decor/src/core/services/local_storage/cached_keys.dart';
 import 'package:home_decor/src/features/onboarding/domain/entities/onboarding.dart';
 import 'package:home_decor/src/features/onboarding/presentation/widgets/onboarding_item.dart';
 
@@ -15,23 +16,23 @@ class OnboardingView extends StatelessWidget {
     final List<Onboarding> items = [
       Onboarding(
         image: AssetsManager.onboarding1,
-        title: AppLocalizations.of(context).onboardingOneTitle,
-        details: AppLocalizations.of(context).onboardingOneDescription,
+        title: context.l10n.onboardingOneTitle,
+        details: context.l10n.onboardingOneDescription,
       ),
       Onboarding(
         image: AssetsManager.onboarding2,
-        title: AppLocalizations.of(context).onboardingTwoTitle,
-        details: AppLocalizations.of(context).onboardingTwoDescription,
+        title: context.l10n.onboardingTwoTitle,
+        details: context.l10n.onboardingTwoDescription,
       ),
       Onboarding(
         image: AssetsManager.onboarding3,
-        title: AppLocalizations.of(context).onboardingThreeTitle,
-        details: AppLocalizations.of(context).onboardingThreeDescription,
+        title: context.l10n.onboardingThreeTitle,
+        details: context.l10n.onboardingThreeDescription,
       ),
       Onboarding(
         image: AssetsManager.onboarding4,
-        title: AppLocalizations.of(context).onboardingFourTitle,
-        details: AppLocalizations.of(context).onboardingFourDescription,
+        title: context.l10n.onboardingFourTitle,
+        details: context.l10n.onboardingFourDescription,
       ),
     ];
 
@@ -42,7 +43,7 @@ class OnboardingView extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           onPageChanged: (value){
             if(value == items.length -1){
-              CacheStartWidget.saveOnboarding();
+              CacheServices.saveCachedData(key: CachedKeys.onBoardingKey, value: true);
             }
           },
           itemBuilder: (context, index) {

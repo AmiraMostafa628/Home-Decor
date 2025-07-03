@@ -61,7 +61,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterEmail => 'Enter your email address';
 
   @override
-  String get username => 'Username';
+  String get userName => 'User Name';
+
+  @override
+  String get fullName => 'Full Name';
 
   @override
   String get userNameOrEmail => 'UserName or Email';
@@ -73,7 +76,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emailValue => 'example@example.com';
 
   @override
-  String get password => 'password';
+  String get password => 'Password';
 
   @override
   String get setPassword => 'Set Password';
@@ -97,7 +100,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dateOFBirth => 'Date of Birth';
 
   @override
-  String get dateOFBirthValue => 'DD / MM /YYY';
+  String get dateOFBirthValue => 'YYYY / MM /DD';
 
   @override
   String get loginTitle => 'Log in';

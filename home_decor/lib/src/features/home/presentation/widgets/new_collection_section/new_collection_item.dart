@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:home_decor/src/core/components/custom_image.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
 import 'package:home_decor/src/features/home/domain/entities/data.dart';
 
@@ -15,10 +15,6 @@ class NewCollectionItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorManager.lightPrimaryColor,
         borderRadius: BorderRadius.circular(20.0),
-        border: Border.all(
-          width: 1,
-          color: ColorManager.primaryColor,
-        ),
       ),
       child: Column(
         spacing: 10.0,
@@ -26,11 +22,12 @@ class NewCollectionItem extends StatelessWidget {
           ClipRRect(
             clipBehavior: Clip.hardEdge,
             borderRadius: BorderRadius.circular(20.0),
-            child: CachedNetworkImage(
-              imageUrl: newCollections.image,
-              width: double.infinity,
+            child: CustomImage(
+              imageType: ImagesType.network,
               height: 120,
-              fit: BoxFit.cover,
+              width: double.infinity,
+              boxFit: BoxFit.cover,
+              imagePath: newCollections.image,
             ),
           ),
           Padding(
@@ -42,7 +39,7 @@ class NewCollectionItem extends StatelessWidget {
                 Text(
                   newCollections.name,
                   style: textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
@@ -57,24 +54,28 @@ class NewCollectionItem extends StatelessWidget {
                     Text(
                       '\$ ${newCollections.price.toString()}',
                       style: textTheme.bodyMedium!.copyWith(
-                          color: ColorManager.primaryColor,
-                          fontWeight: FontWeight.bold
+                        color: ColorManager.primaryColor,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Spacer(),
                     CircleAvatar(
                       radius: 15,
                       backgroundColor: Theme.of(context).colorScheme.secondary,
-                      child: Icon(Icons.favorite,
+                      child: Icon(
+                        Icons.favorite,
                         size: 18,
                         color: Theme.of(context).scaffoldBackgroundColor,
                       ),
                     ),
-                    SizedBox(width: 10.0,),
+                    SizedBox(
+                      width: 10.0,
+                    ),
                     CircleAvatar(
                       radius: 15,
                       backgroundColor: Theme.of(context).colorScheme.secondary,
-                      child: Icon(Icons.add,
+                      child: Icon(
+                        Icons.add,
                         size: 18,
                         color: Theme.of(context).scaffoldBackgroundColor,
                       ),
@@ -83,7 +84,7 @@ class NewCollectionItem extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

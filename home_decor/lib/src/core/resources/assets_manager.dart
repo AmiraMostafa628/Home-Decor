@@ -1,6 +1,7 @@
 class AssetsManager {
   //image path
   static const imagePath = 'assets/images';
+  static const logo = '$imagePath/android12_logo.png';
   static const onboarding1 = '$imagePath/onboarding1.png';
   static const onboarding2 = '$imagePath/onboarding2.png';
   static const onboarding3 = '$imagePath/onboarding3.png';

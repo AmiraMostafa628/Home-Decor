@@ -61,7 +61,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterEmail => 'يرجى إدخال بريدك الإلكتروني';
 
   @override
-  String get username => 'اسم المستخدم';
+  String get userName => 'اسم المستخدم';
+
+  @override
+  String get fullName => 'الاسم';
 
   @override
   String get userNameOrEmail => 'اسم المستخدم أو البريد الإلكتروني';

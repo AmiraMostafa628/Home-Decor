@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:home_decor/src/core/resources/color_manager.dart';
+import 'package:home_decor/src/core/services/router/app_router.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -26,10 +28,15 @@ class HomeAppBar extends StatelessWidget {
             ),
           ],
         ),
-        CircleAvatar(
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-          child: Icon(Icons.search,
-            color: Theme.of(context).colorScheme.onSecondary,
+        GestureDetector(
+          onTap: (){
+            GoRouter.of(context).push(AppRouter.kSearchView);
+          },
+          child: CircleAvatar(
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            child: Icon(Icons.search,
+              color: Theme.of(context).colorScheme.onSecondary,
+            ),
           ),
         ),
       ],

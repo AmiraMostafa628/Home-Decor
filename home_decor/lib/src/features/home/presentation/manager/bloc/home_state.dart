@@ -21,16 +21,16 @@ class HomeState extends Equatable {
 
   const HomeState({
     this.selectedBottomNavbarIndex = 0,
-    this.sliderStatus = RequestState.loading,
+    this.sliderStatus = RequestState.initial,
     this.sliderErrorMessage = '',
     this.slider,
-    this.categoriesStatus = RequestState.loading,
+    this.categoriesStatus = RequestState.initial,
     this.categoriesErrorMessage = '',
     this.categories,
-    this.bestSellerStatus = RequestState.loading,
+    this.bestSellerStatus = RequestState.initial,
     this.bestSellerErrorMessage = '',
     this.bestSeller,
-    this.newCollectionsStatus = RequestState.loading,
+    this.newCollectionsStatus = RequestState.initial,
     this.newCollectionsErrorMessage = '',
     this.newCollections,
   });
@@ -70,21 +70,7 @@ class HomeState extends Equatable {
     );
   }
 
-  RequestState get overallStatus {
-    if (sliderStatus == RequestState.error ||
-        categoriesStatus == RequestState.error ||
-        bestSellerStatus == RequestState.error ||
-        newCollectionsStatus == RequestState.error) {
-      return RequestState.error;
-    } else if (sliderStatus == RequestState.loaded &&
-        categoriesStatus == RequestState.loaded &&
-        bestSellerStatus == RequestState.loaded &&
-        newCollectionsStatus == RequestState.loaded) {
-      return RequestState.loaded;
-    } else {
-      return RequestState.loading;
-    }
-  }
+
 
   @override
   List<Object?> get props => [

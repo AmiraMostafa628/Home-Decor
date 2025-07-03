@@ -21,15 +21,12 @@ class ChangeHomeNavigationBar extends HomeEvent {
 }
 
 class SliderEvent extends HomeEvent {
-  const SliderEvent();
 
   @override
-  List<Object?> get props => [
-  ];
+  List<Object?> get props => [];
 }
 
 class CategoriesEvent extends HomeEvent {
-  const CategoriesEvent();
 
   @override
   List<Object?> get props => [
@@ -37,19 +34,14 @@ class CategoriesEvent extends HomeEvent {
 }
 
 class NewCollectionEvent extends HomeEvent {
-  const NewCollectionEvent();
-
   @override
-  List<Object?> get props => [
-  ];
+  List<Object?> get props => [];
 }
 
 
 class BestSellerEvent extends HomeEvent {
-  const BestSellerEvent();
 
   @override
-  List<Object?> get props => [
-  ];
+  List<Object?> get props => [];
 }
 
